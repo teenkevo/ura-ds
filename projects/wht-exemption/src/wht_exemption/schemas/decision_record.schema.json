@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "decision_type",
+    "version",
+    "identity",
+    "context",
+    "input_snapshot",
+    "rule_layer",
+    "ml_layer",
+    "combined_decision",
+    "audit_metadata"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "decision_type": {
+      "type": "string"
+    },
+    "version": {
+      "type": "object"
+    },
+    "identity": {
+      "type": "object"
+    },
+    "context": {
+      "type": "object"
+    },
+    "input_snapshot": {
+      "type": "object"
+    },
+    "rule_layer": {
+      "type": "object"
+    },
+    "ml_layer": {
+      "type": "object"
+    },
+    "combined_decision": {
+      "type": "object"
+    },
+    "audit_metadata": {
+      "type": "object"
+    }
+  }
+}

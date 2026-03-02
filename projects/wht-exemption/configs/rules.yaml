@@ -1,0 +1,29 @@
+version: wht_rules_v0.1
+
+fatal_rules:
+  - id: R001_TIN_ACTIVE
+    feature: wht_profile_tin_active
+    condition: "== true"
+    reason_code: TIN_INACTIVE
+
+  - id: R002_PROFILE_COMPLETE
+    feature: wht_profile_is_profile_complete
+    condition: "== true"
+    reason_code: PROFILE_INCOMPLETE
+
+soft_rules:
+  - id: R010_LIABILITY_REVIEW
+    feature: wht_enforce_has_outstanding_liability
+    condition: "== false"
+    action_if_failed: REVIEW
+    reason_code: OUTSTANDING_LIABILITY
+
+  - id: R040_INVESTIGATION_REVIEW
+    feature: wht_investig_investigation_flag
+    condition: "== false"
+    action_if_failed: REVIEW
+    reason_code: INVESTIGATION_HISTORY
+
+decision_thresholds:
+  auto_approve_min_p: 0.90
+  review_min_p: 0.60

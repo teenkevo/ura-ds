@@ -1,0 +1,32 @@
+version: wht_features_v0.1
+grain: [tin, as_of_date]
+
+required_features:
+  - wht_profile_tin_active
+  - wht_profile_years_on_register
+  - wht_profile_is_profile_complete
+  - wht_profile_overall_filing_compliance_ratio
+  - wht_pay_tax_payment_compliance_ratio_12m
+  - wht_enforce_has_outstanding_liability
+  - wht_investig_investigation_flag
+  - wht_composite_overall_compliance_score
+  - wht_composite_enforcement_risk_score
+  - wht_composite_transparency_score
+  - wht_composite_stability_score
+
+types:
+  wht_profile_tin_active: boolean
+  wht_profile_years_on_register: int
+  wht_profile_is_profile_complete: boolean
+  wht_profile_overall_filing_compliance_ratio: float
+  wht_pay_tax_payment_compliance_ratio_12m: float
+  wht_enforce_has_outstanding_liability: boolean
+  wht_investig_investigation_flag: boolean
+  wht_composite_overall_compliance_score: float
+  wht_composite_enforcement_risk_score: float
+  wht_composite_transparency_score: float
+  wht_composite_stability_score: float
+
+missing_policy:
+  default_numeric: median
+  default_boolean: false

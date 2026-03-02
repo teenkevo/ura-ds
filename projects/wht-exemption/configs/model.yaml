@@ -1,0 +1,26 @@
+version: wht_model_v0.1
+
+training:
+  label_column: label_safe_to_exempt
+  time_split:
+    train_end: "2023-12-31"
+    valid_end: "2024-06-30"
+    test_end: "2024-12-31"
+
+xgboost:
+  objective: binary:logistic
+  n_estimators: 600
+  max_depth: 4
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.9
+  reg_lambda: 1.0
+  min_child_weight: 5
+  eval_metric: aucpr
+
+calibration:
+  method: isotonic
+
+artifacts:
+  output_dir: "projects/wht-exemption/artifacts"
+  model_bundle_name: "wht_model_bundle.pkl"
