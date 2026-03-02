@@ -1,0 +1,19 @@
+name: Sentry Release
+
+on:
+  push:
+    tags:
+      - "wht-exemption-v*"
+
+permissions:
+  contents: read
+
+jobs:
+  sentry-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Placeholder
+        run: |
+          echo "Configure Sentry release automation here using repo secrets (SENTRY_AUTH_TOKEN, SENTRY_ORG, SENTRY_PROJECT)."

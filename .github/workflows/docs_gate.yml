@@ -1,0 +1,44 @@
+name: Docs Gate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  docs-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine changed files
+        id: diff
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          echo "changed<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Enforce docs updates for WHT project
+        run: |
+          CHANGED="${{ steps.diff.outputs.changed }}"
+          echo "$CHANGED"
+
+          CODE_CHANGED=$(echo "$CHANGED" | grep -E '^projects/wht-exemption/src/' || true)
+          if [ -z "$CODE_CHANGED" ]; then
+            echo "No WHT code changes detected."
+            exit 0
+          fi
+
+          DOC_CHANGED=$(echo "$CHANGED" | grep -E '^projects/wht-exemption/(MODEL_CARD\.md|RUNBOOK\.md|DATA_SOURCES\.md|docs/)' || true)
+          if [ -z "$DOC_CHANGED" ]; then
+            echo "WHT code changed but no WHT documentation updated."
+            echo "Update one of: MODEL_CARD.md, RUNBOOK.md, DATA_SOURCES.md, or files under docs/."
+            exit 1
+          fi
+
+          echo "Docs Gate passed."

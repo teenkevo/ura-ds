@@ -1,0 +1,31 @@
+name: Documentation
+description: Create or update documentation for a model/project
+title: "[Docs] "
+labels: ["docs"]
+body:
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Doc type
+      options:
+        - Model Card
+        - Design/Architecture
+        - Labeling
+        - Evaluation
+        - Runbook
+        - Data Sources
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What needs to be documented/updated?
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Acceptance checklist
+      value: |
+        - [ ] Updated markdown files in the repo
+        - [ ] Linked from project README
+        - [ ] Reviewed via PR
