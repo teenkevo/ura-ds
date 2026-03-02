@@ -1,0 +1,10 @@
+* @ura-ds-team
+
+/docs/ @ura-ds-leads
+/.github/ @ura-ds-leads @ura-platform
+
+/projects/wht-exemption/ @ura-wht-squad
+/projects/wht-exemption/MODEL_CARD.md @ura-model-governance
+/projects/wht-exemption/RUNBOOK.md @ura-ds-leads @ura-platform
+
+/libs/ @ura-ds-leads
