@@ -6,10 +6,15 @@ Requires-Dist: pandas>=2.0
 Requires-Dist: numpy>=1.24
 Requires-Dist: scikit-learn>=1.3
 Requires-Dist: xgboost>=2.0
-Requires-Dist: shap>=0.50
+Requires-Dist: shap>=0.44
 Requires-Dist: pyyaml>=6.0
 Requires-Dist: jsonschema>=4.19
 Requires-Dist: joblib>=1.3
+Requires-Dist: python-dotenv>=1.0
+Requires-Dist: pyhive[hive]>=0.7.0
+Requires-Dist: thrift>=0.16.0
+Requires-Dist: thrift-sasl>=0.4.3
+Requires-Dist: sasl>=0.3.1
 Provides-Extra: dev
 Requires-Dist: pytest>=7.4; extra == "dev"
 Requires-Dist: ruff>=0.5; extra == "dev"
